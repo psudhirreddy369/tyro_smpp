@@ -245,12 +245,12 @@ def read_messages_from_kafka_queue():
             india_timezone = pytz.timezone("Asia/Kolkata")
             current_time_in_india = datetime.now(india_timezone)
             diff_seconds = abs((datetime.strptime(current_time_in_india.strftime('%Y-%m-%d %H:%M:%S'),date_format)- datetime.strptime(client.last_resp_connection,date_format)).total_seconds())
-            if(int(diff_seconds)<=10):
+            if(int(diff_seconds)<=int(os.getenv("SOCKET_TIMEOUT", 10))):
                 print("Client Active")
                 send_message(message['messageid'], message['sender'], message['dest'], message['messagetype'], message['message'], message['templateid'], message['peid'], TELEMARKETING_ID,message['encoding_flag'],message['msg_type_flag'],message['msg_parts'],message['msg_part'],message['unique_ref'],message['telemarketing_id'])
                 store_message_for_failure_retry(message)
                 consumer.commit()
-                sleep(0.1)
+                #sleep(0.1)
             else:
                 logging.error("SMSC is Inactive: Uncommitting record")
                 print("Client Inactive")
