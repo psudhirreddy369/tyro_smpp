@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  my_service:
+    image: tanla_smpp_prepaid_deferred
+    container_name: tanla1
+    environment:
+      KAFKA_BOOTSTRAP_SERVER: "192.168.2.51:9092"
+      RECEIVE_SMS_TOPIC: "tanla"
+      TELEMARKETING_ID: "1702157624101380895"
+      INSERT_QUERIES_PATH: "./insert_smsqueries/"
+      LOGS_PATH: "./logs/"
+      IS_PREPAID: 0
+      SMPP_TX_SERVER_IP: "ucc-bsnl1.tanla.net"
+      SMPP_TX_PORT: "5613"
+      SMPP_TX_USER: "Netxcell_T5"
+      SMPP_TX_PASSWORD: "Hdpw0jPq"
+      SMPP_RX_SERVER_IP: "ucc-bsnl1.tanla.net"
+      SMPP_RX_PORT: "5713"
+      SMPP_RX_USER: "Netxcell_T5"
+      SMPP_RX_PASSWORD: "Hdpw0jPq"
+    volumes:
+      - /home/netxcell/tanla_smpp_tx_rx_modified/code/logs/:/code/logs/
+      - /home/netxcell/tanla_smpp_tx_rx_modified/code/insert_smsqueries/:/code/insert_smsqueries/

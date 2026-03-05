@@ -1,0 +1,10 @@
+fastapi[all]
+mysql-connector-python
+requests
+configparser
+thread
+kafka-python
+pandas
+python-smpp
+smpplib
+redis

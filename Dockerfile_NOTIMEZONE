@@ -1,0 +1,20 @@
+FROM python:3.9
+
+# 
+WORKDIR /code
+
+# 
+COPY ./requirements.txt /code/requirements.txt
+
+# 
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+RUN mkdir -p /code/logs
+RUN mkdir -p /code/insert_smsqueries
+# Set permissions for the logs directory
+RUN chmod -R 777 /code/logs
+RUN chmod -R 777 /code/insert_smsqueries
+EXPOSE 9092
+# 
+COPY ./ /code/
+CMD ["sh", "-c", "python3 smpp_tx_client.py & python3 smpp_rx_client.py & wait"]
+#CMD python3 airtel_tx_client.py && python3 airtel_rx_client.py && python3 AirtelKafkaTopic2MySQL.py

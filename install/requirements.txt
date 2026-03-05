@@ -1,0 +1,9 @@
+pydantic
+starlette
+fastapi[all]
+gunicorn
+kafka-python
+mysql-connector
+pandas
+urllib3
+configparser
