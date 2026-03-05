@@ -1,0 +1,25 @@
+2026-03-05 12:02:18,601 - INFO - connect - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=192.168.0.179:9092 <connecting> [IPv4 ('192.168.0.179', 9092)]>: connecting to 192.168.0.179:9092 [('192.168.0.179', 9092) IPv4]
+2026-03-05 12:02:18,606 - INFO - _handle_api_versions_response - Broker version identified as 2.6
+2026-03-05 12:02:18,606 - INFO - connect - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=192.168.0.179:9092 <checking_api_versions_recv> [IPv4 ('192.168.0.179', 9092)]>: Connection complete.
+2026-03-05 12:02:18,626 - INFO - connect - Connecting to 103.210.72.206:8585...
+2026-03-05 12:02:18,684 - INFO - connect - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-0 host=192.168.0.179:9092 <connecting> [IPv4 ('192.168.0.179', 9092)]>: connecting to 192.168.0.179:9092 [('192.168.0.179', 9092) IPv4]
+2026-03-05 12:02:18,690 - INFO - _handle_api_versions_response - Broker version identified as 2.6
+2026-03-05 12:02:18,690 - INFO - connect - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-0 host=192.168.0.179:9092 <checking_api_versions_recv> [IPv4 ('192.168.0.179', 9092)]>: Connection complete.
+2026-03-05 12:02:18,691 - INFO - change_subscription - Updating subscribed topics to: ('tanla',)
+2026-03-05 12:02:18,695 - INFO - connect - <BrokerConnection client_id=kafka-python-2.1.2, node_id=0 host=192.168.0.179:9092 <connecting> [IPv4 ('192.168.0.179', 9092)]>: connecting to 192.168.0.179:9092 [('192.168.0.179', 9092) IPv4]
+2026-03-05 12:02:18,796 - INFO - connect - <BrokerConnection client_id=kafka-python-2.1.2, node_id=0 host=192.168.0.179:9092 <checking_api_versions_send> [IPv4 ('192.168.0.179', 9092)]>: Connection complete.
+2026-03-05 12:02:18,796 - INFO - close - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-0 host=192.168.0.179:9092 <connected> [IPv4 ('192.168.0.179', 9092)]>: Closing connection. 
+2026-03-05 12:02:18,900 - INFO - add_group_coordinator - Group coordinator for earliest is BrokerMetadata(nodeId='coordinator-0', host='192.168.0.179', port=9092, rack=None)
+2026-03-05 12:02:18,900 - INFO - _handle_group_coordinator_response - Discovered coordinator coordinator-0 for group earliest
+2026-03-05 12:02:18,900 - INFO - _start_heartbeat_thread - Starting new heartbeat thread
+2026-03-05 12:02:18,901 - INFO - _on_join_prepare - Revoking previously assigned partitions set() for group earliest
+2026-03-05 12:02:18,902 - INFO - connect - <BrokerConnection client_id=kafka-python-2.1.2, node_id=coordinator-0 host=192.168.0.179:9092 <connecting> [IPv4 ('192.168.0.179', 9092)]>: connecting to 192.168.0.179:9092 [('192.168.0.179', 9092) IPv4]
+2026-03-05 12:02:19,003 - INFO - connect - <BrokerConnection client_id=kafka-python-2.1.2, node_id=coordinator-0 host=192.168.0.179:9092 <checking_api_versions_send> [IPv4 ('192.168.0.179', 9092)]>: Connection complete.
+2026-03-05 12:02:19,103 - INFO - _send_join_group_request - (Re-)joining group earliest
+2026-03-05 12:02:19,111 - INFO - _handle_join_group_response - Elected group leader -- performing partition assignments using range
+2026-03-05 12:02:19,116 - INFO - _handle_join_success - Successfully joined group earliest with generation 30
+2026-03-05 12:02:19,116 - INFO - assign_from_subscribed - Updated partition assignment: [TopicPartition(topic='tanla', partition=0)]
+2026-03-05 12:02:19,116 - INFO - _on_join_complete - Setting newly assigned partitions {TopicPartition(topic='tanla', partition=0)} for group earliest
+2026-03-05 12:07:18,694 - INFO - connect - <BrokerConnection client_id=kafka-python-producer-1, node_id=0 host=192.168.0.179:9092 <connecting> [IPv4 ('192.168.0.179', 9092)]>: connecting to 192.168.0.179:9092 [('192.168.0.179', 9092) IPv4]
+2026-03-05 12:07:18,698 - INFO - connect - <BrokerConnection client_id=kafka-python-producer-1, node_id=0 host=192.168.0.179:9092 <checking_api_versions_send> [IPv4 ('192.168.0.179', 9092)]>: Connection complete.
+2026-03-05 12:07:18,698 - INFO - close - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=192.168.0.179:9092 <connected> [IPv4 ('192.168.0.179', 9092)]>: Closing connection. 
