@@ -78,7 +78,8 @@ def send_message(msg_id: str, source: str, destination: str, message_type: str, 
     """  Send Mesage via SMPP Client library """
 
     global submit_df
-    
+    if len(destination) == 10:
+        destination = "91" + destination
     msg_part_num=1
     # Two parts, GSM default / UCS2, SMS with UDH
     if message_type=='T':
@@ -250,7 +251,7 @@ def read_messages_from_kafka_queue():
                 send_message(message['messageid'], message['sender'], message['dest'], message['messagetype'], message['message'], message['templateid'], message['peid'], TELEMARKETING_ID,message['encoding_flag'],message['msg_type_flag'],message['msg_parts'],message['msg_part'],message['unique_ref'],message['telemarketing_id'])
                 store_message_for_failure_retry(message)
                 consumer.commit()
-                #sleep(0.1)
+                sleep(0.005)
             else:
                 logging.error("SMSC is Inactive: Uncommitting record")
                 print("Client Inactive")

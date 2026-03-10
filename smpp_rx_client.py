@@ -18,6 +18,7 @@ import smpplib.consts
 import redis
 from dotenv import load_dotenv
 import os
+import time
 
 # Load environment variables from .env
 load_dotenv()
@@ -107,7 +108,12 @@ def handle_deliver_sm(pdu):
 
         print("********** DELIVER_SMS_TOPIC ************")
         #rcvsmsdelvy=f"insert ignore into sms_delivered_report_V2 (deliverTime,smscId,receipt,status,errcode)VALUES('{delivery_sm['msgdict']['done date'] }','{delivery_sm['msgdict']['id']}','{delivery_sm['Message']}','{delivery_sm['msgdict']['stat']}','{delivery_sm['msgdict']['err']}' );\n"
-        rcvsmsdelvy=f"{delivery_sm['msgdict']['done date'] }|{delivery_sm['msgdict']['id']}|{delivery_sm['Message']}|{delivery_sm['msgdict']['stat']}|{delivery_sm['msgdict']['err']}\n"
+        
+        done_date = delivery_sm['msgdict'].get('done date')
+        t_struct = time.strptime(done_date, "%y%m%d%H%M%S")
+        formatted = time.strftime("%Y-%m-%d %H:%M:%S", t_struct)
+        rcvsmsdelvy=f"{formatted}|{delivery_sm['msgdict']['id']}|{delivery_sm['Message']}|{delivery_sm['msgdict']['stat']}|{delivery_sm['msgdict']['err']}\n"
+        
 
         print(rcvsmsdelvy)
         delivered_report(rcvsmsdelvy,DELIVERY_CDR)
